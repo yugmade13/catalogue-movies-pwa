@@ -1,0 +1,31 @@
+{
+  "name": "movie-catalouge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^6.4.1",
+    "css-loader": "^5.2.7",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "html-webpack-plugin": "^4.5.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.9"
+  }
+}
