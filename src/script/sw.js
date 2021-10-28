@@ -7,21 +7,25 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-restricted-globals */
 
+import 'regenerator-runtime';
+import CacheHelper from './utils/cache-helper';
+
+const { assets } = global.serviceWorkerOption;
+
 self.addEventListener('install', (event) => {
-    console.log('Install Service Worker..');
+    event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
 
     // TODO: Caching App Shell Resource
 });
 
 self.addEventListener('activate', (event) => {
-    console.log('Activate Service Worker..');
+    event.waitUntil(CacheHelper.deleteOldCache());
 
     // TODO: Delete old caches
 });
 
 self.addEventListener('fetch', (event) => {
-    console.log(event.request);
+    event.respondWith(CacheHelper.revalidateCache(event.request));
 
-    event.respondWith(fetch(event.request));
     // TODO: Add/get fetch request to/from caches
 });
