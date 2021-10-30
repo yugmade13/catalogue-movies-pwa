@@ -15,6 +15,7 @@ const CONFIG = {
     DATABASE_NAME: 'movie-catalogue-database',
     DATABASE_VERSION: 1,
     OBJECT_STRORE_NAME: 'movie',
+    WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
 };
 
 export default CONFIG;
