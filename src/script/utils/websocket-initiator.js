@@ -3,6 +3,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable indent */
 
+import CONFIG from '../globals/config';
+import NotificationHelper from './notification-helper';
+
 /* eslint-disable eol-last */
 /* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
@@ -14,7 +17,14 @@ const WebsocketInitiator = {
     },
 
     _onMessageHandler(message) {
-        console.log(message.data);
+        const movie = JSON.parse(message.data);
+        NotificationHelper.sendNotification({
+            title: `${movie.title} is on cinema!`,
+            option: {
+                body: movie.overview,
+                image: `${CONFIG.BASE_IMAGE_URL + movie.poster_path}`,
+            },
+        });
     },
 };
 
